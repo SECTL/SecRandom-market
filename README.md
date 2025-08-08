@@ -23,7 +23,7 @@
         "version": "插件版本号（如：1.0.0）",
         "plugin_ver": "插件最低支持的 SecRandom 版本号（可在 SecRandom 的 关于 中的 版本 部分找到该值，格式为 x.x.x.x）",
         "author": "插件作者的 PluginMarket 名称",
-        "url": "您的 GitHub 插件仓库链接 (例如：https://github.com/RinLit-233-shiroko/cw-example-plugin)",
+        "url": "您的 GitHub 插件仓库链接 (例如：https://github.com/SECTL/SecRandom-plugin)",
         "branch": "插件仓库的分支（如：main）",
         "update_date": "插件更新日期（格式：yyyy/mm/dd）"
     }
