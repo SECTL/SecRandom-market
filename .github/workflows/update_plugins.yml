@@ -1,0 +1,53 @@
+name: 更新插件列表
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch: 
+
+jobs:
+  update-plugin-list:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 检出仓库
+      uses: actions/checkout@v3
+
+    - name: 设置Python环境
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+
+    - name: 安装依赖
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+
+    - name: 运行更新脚本
+      run: python scripts/update_plugin_list.py
+
+    - name: 检查变更
+      id: git-status
+      run: |
+        git add Plugins/plugin_list.json
+        if git diff-index --quiet HEAD; then
+          echo "未检测到变更"
+          echo "::set-output name=changes_detected::false"
+        else
+          echo "检测到变更"
+          echo "::set-output name=changes_detected::true"
+        fi
+
+    - name: 提交变更
+      if: steps.git-status.outputs.changes_detected == 'true'
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git commit -m '使用最新版本和日期更新插件列表'
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: 无需提交变更
+      if: steps.git-status.outputs.changes_detected == 'false'
+      run: echo "无需提交变更，工作树干净。任务完成。"
