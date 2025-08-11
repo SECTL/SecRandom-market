@@ -8,5 +8,15 @@
         "url": "https://github.com/SECTL/SecRandom-plugins",
         "branch": "master",
         "update_date": "2025/08/09"
+    },
+    "SecPicker": {
+        "name": "示例插件",
+        "description": "NamePicker for SecRandom",
+        "version": "v33550336.402604032",
+        "plugin_ver": "v0.0.0.0",
+        "author": "LHGS_github",
+        "url": "https://github.com/NamePickerOrg/SecPicker",
+        "branch": "master",
+        "update_date": "2025/08/11"
     }
 }
