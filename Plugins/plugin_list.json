@@ -2,7 +2,7 @@
     "SecRandom-plugins": {
         "name": "示例插件",
         "description": "这是一个示例插件，用于演示插件的基本信息。",
-        "version": "v1.0.3",
+        "version": "v1.0.4",
         "plugin_ver": "v0.0.0.0",
         "author": "lzy98276",
         "url": "https://github.com/SECTL/SecRandom-plugins",
